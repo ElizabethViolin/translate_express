@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react';
 import { translateText, detectLanguage } from '../services/translationService'; 
 
@@ -16,7 +18,7 @@ function TranslationForm() {
 
     return (
         <div>
-            <input type="text" value={text} className="text-black" onChange={(e) => setText(e.target.value)} />
+            <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
             <button onClick={handleTranslate}>Translate to English</button>
             <div>Detected Language: {detectedLanguage}</div>
             <div>Translation: {translation}</div>
