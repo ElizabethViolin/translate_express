@@ -1,7 +1,7 @@
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseUrl: string = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 
 // Function to detect language
-export async function detectLanguage(text) {
+export async function detectLanguage(text: string): Promise<{ language: string }> {
     const response = await fetch(`${baseUrl}/detectLanguage`, {
         method: 'POST',
         headers: {
@@ -13,7 +13,7 @@ export async function detectLanguage(text) {
 }
 
 // Function to translate text
-export async function translateText(text, targetLanguage) {
+export async function translateText(text: string, targetLanguage: string): Promise<{ translatedText: string }> {
     const response = await fetch(`${baseUrl}/translateText`, {
         method: 'POST',
         headers: {
