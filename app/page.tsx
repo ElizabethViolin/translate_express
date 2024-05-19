@@ -1,10 +1,13 @@
-import TranslationForm from './components/translationForm';
+import Sidebar from './components/sideBar';
+import Message from './components/translationDisplay';
+import PlayPauseButton from './components/playPauseButton';
 
 export default function Home() {
     return (
-        <div>
-            <h1>Welcome to the Translation App</h1>
-            <TranslationForm />
+        <div className='flex'>
+            <Sidebar/>
+            <Message />
+            <PlayPauseButton />
         </div>
     );
 }

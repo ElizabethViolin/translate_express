@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { translateText, detectLanguage } from '../services/translationService'; 
+import { Separator } from './ui/separator';
 
 function TranslationForm() {
     const [text, setText] = useState<string>('');
@@ -18,10 +19,12 @@ function TranslationForm() {
 
     return (
         <div>
-            <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
-            <button onClick={handleTranslate}>Translate to English</button>
-            <div>Detected Language: {detectedLanguage}</div>
-            <div>Translation: {translation}</div>
+            <div>{detectedLanguage}:</div>
+            <input type="text" className="text-2xl my-4 w-full bg-transparent" value={text} onChange={(e) => setText(e.target.value)} />
+            <button onClick={handleTranslate}>Translate</button>
+            <Separator className="w-full dark:bg-gray-400 my-4 "/>
+            <div>English:</div>
+            <div className='text-2xl my-3'>{translation}</div>
         </div>
     );
 }
