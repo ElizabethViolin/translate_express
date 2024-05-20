@@ -22,8 +22,11 @@ export default function Sidebar() {
         value={selectedLanguages}
         onChange={setSelectedLanguages}
         labelledBy="Select languages"
-        className="w-full text-black dark:bg-gray-700"
+        className="w-full text-black dark:bg-gray-700 mb-5"
       />
+      <p>
+        Our interview app seamlessly auto-detects your language and translates in real time. Speak effortlessly as it continuously listens and translates into multiple languages without interruptions. Perfect for smooth, multilingual conversations and interviews. Experience effortless communication today!      
+      </p>
     </div>
   );
 }
