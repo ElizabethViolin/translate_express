@@ -114,35 +114,48 @@ const languages = [
 
 
 function TranslationForm() {
-    const [translation, setTranslation] = useState<string>('');
+    const [translations, setTranslations] = useState<{ [key: string]: string }>({});
     const [detectedLanguage, setDetectedLanguage] = useState<string>('');
-    const [targetLanguage, setTargetLanguage] = useState<string>('en');
+    const [targetLanguages, setTargetLanguages] = useState<string[]>([]);
     const { transcript } = useSpeechStore();
 
     const handleTranslate = async () => {
-        const translateResult = await translateText(transcript, targetLanguage);
-        setTranslation(translateResult.translatedText);
-
         const detectedResult = await detectLanguage(transcript);
         setDetectedLanguage(detectedResult.language);
+
+        const translations = await Promise.all(
+            targetLanguages.map(async (lang) => {
+                const translateResult = await translateText(transcript, lang);
+                return { [lang]: translateResult.translatedText };
+            })
+        );
+
+        setTranslations(Object.assign({}, ...translations));
     };
 
     useEffect(() => {
         if (transcript) {
             handleTranslate();
         }
-    }, [transcript]);
+    }, [transcript, targetLanguages]);
+
+    const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
+        setTargetLanguages(selectedOptions);
+    };
 
     return (
         <div>
             <div>{detectedLanguage}:</div>
             <input type="text" className="text-2xl my-4 w-full bg-transparent" value={transcript} readOnly />
             <div>
-                <label htmlFor="targetLanguage">Translate to: </label>
+                <label htmlFor="targetLanguages">Translate to: </label>
                 <select
-                    id="targetLanguage"
-                    value={targetLanguage}
-                    onChange={(e) => setTargetLanguage(e.target.value)}
+                    id="targetLanguages"
+                    multiple
+                    value={targetLanguages}
+                    onChange={handleLanguageChange}
+                    className="w-full"
                 >
                     {languages.map((lang) => (
                         <option key={lang.code} value={lang.code}>
@@ -152,8 +165,12 @@ function TranslationForm() {
                 </select>
             </div>
             <Separator className="w-full dark:bg-gray-400 my-4 "/>
-            <div>Translation:</div>
-            <div className='text-2xl my-3'>{translation}</div>
+            <div>Translations:</div>
+            {Object.entries(translations).map(([lang, translation]) => (
+                <div key={lang} className="text-2xl my-3">
+                    <strong>{languages.find(l => l.code === lang)?.name}:</strong> {translation}
+                </div>
+            ))}
         </div>
     );
 }
