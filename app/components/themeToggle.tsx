@@ -18,7 +18,7 @@ export function ThemeToggle() {
   };
 
   return (
-    <div className='absolute top-0 right-0 m-5'>
+    <div className='absolute top-0 left-0 ml-5 mt-7 hidden sm:block'>
       <button
         onClick={toggleTheme}
       >
