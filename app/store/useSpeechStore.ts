@@ -1,15 +1,22 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 interface SpeechState {
   isListening: boolean;
-  transcript: string;
+  inProgressTranscript: string;
+  transcripts: string[];
   setListening: (isListening: boolean) => void;
-  setTranscript: (transcript: string) => void;
+  setInProgressTranscript: (transcript: string) => void;
+  finalizeTranscript: () => void;
 }
 
 export const useSpeechStore = create<SpeechState>((set) => ({
   isListening: false,
-  transcript: '',
+  inProgressTranscript: '',
+  transcripts: [],
   setListening: (isListening) => set({ isListening }),
-  setTranscript: (transcript) => set({ transcript }),
+  setInProgressTranscript: (transcript) => set({ inProgressTranscript: transcript }),
+  finalizeTranscript: () => set((state) => ({
+    transcripts: state.inProgressTranscript ? [...state.transcripts, state.inProgressTranscript] : state.transcripts,
+    inProgressTranscript: '',
+  })),
 }));

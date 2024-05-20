@@ -8,7 +8,7 @@ const subscriptionKey = process.env.NEXT_PUBLIC_AZURE_SUBSCRIPTION_KEY;
 const serviceRegion = process.env.NEXT_PUBLIC_AZURE_SERVICE_REGION;
 
 export const useSpeechRecognition = () => {
-  const { isListening, setTranscript } = useSpeechStore();
+  const { isListening, setInProgressTranscript, finalizeTranscript } = useSpeechStore();
 
   useEffect(() => {
     if (!isListening || !subscriptionKey || !serviceRegion) return;
@@ -19,13 +19,14 @@ export const useSpeechRecognition = () => {
 
     recognizer.recognizing = (s, e) => {
       console.log(`Recognizing: ${e.result.text}`);
-      setTranscript(e.result.text);
+      setInProgressTranscript(e.result.text);
     };
 
     recognizer.recognized = (s, e) => {
       if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
         console.log(`Recognized: ${e.result.text}`);
-        setTranscript(e.result.text);
+        setInProgressTranscript(e.result.text);
+        finalizeTranscript();
       } else if (e.result.reason === SpeechSDK.ResultReason.NoMatch) {
         console.log("No speech could be recognized.");
       }
@@ -39,5 +40,5 @@ export const useSpeechRecognition = () => {
         (err) => recognizer.close()
       );
     };
-  }, [isListening, setTranscript]);
+  }, [isListening, setInProgressTranscript, finalizeTranscript]);
 };

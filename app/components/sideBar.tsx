@@ -4,7 +4,6 @@ import React from 'react';
 import { MultiSelect } from "react-multi-select-component";
 import languages from '../../data/languages.json'; 
 import { useLanguageStore } from '../store/useLanguageStore';
-import { PencilSquareIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/16/solid';
 
 const languageOptions = languages.map(lang => ({
   label: lang.name,
@@ -16,7 +15,7 @@ export default function Sidebar() {
 
   return (
     <div className='bg-gray-300 dark:bg-sidebarGrey flex flex-col h-screen w-80 text-gray-700 dark:text-gray-300 p-5'>
-      <label htmlFor="targetLanguages" className="block mb-2">Translate to:</label>
+      <label htmlFor="targetLanguages" className="block mb-2">Select any languages part of your conversation:</label>
       <MultiSelect
         options={languageOptions}
         value={selectedLanguages}
