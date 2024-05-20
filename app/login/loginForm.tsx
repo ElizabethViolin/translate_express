@@ -42,7 +42,7 @@ const LoginForm: React.FC = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-light-background dark:bg-dark-background">
       <h1 className='mb-5 text-2xl'>Welcome to Translate Express!</h1>
-      <form className="flex flex-col p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-4">
+      <form className="flex flex-col p-6 rounded-lg space-y-4">
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -57,10 +57,10 @@ const LoginForm: React.FC = () => {
           className="w-80 px-4 py-2 border border-gray-300 rounded-md dark:border-gray-700 dark:bg-gray-700 dark:text-white"
         />
         <div className='flex justify-around'>
-          <Button variant="ghost" onClick={handleSignIn} className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">
+          <Button variant="ghost" onClick={handleSignIn} className="w-full text-white py-2 rounded-md">
             Sign In
           </Button>
-          <Button variant="ghost" onClick={handleSignUp} className="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600">
+          <Button variant="ghost" onClick={handleSignUp} className="w-full text-white py-2 rounded-md">
             Sign Up
           </Button>
         </div>
