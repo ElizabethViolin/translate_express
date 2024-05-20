@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "server/api/detectLanguage.js", "server/api/detectLanguage.js", "server/index.js", "server/api/translateText.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "server/api/detectLanguage.js", "server/api/detectLanguage.js", "server/index.js", "server/api/translateText.js", "app/lib/firebase.js", "app/login/page.jsx", "app/login/loginForm.jsx"],
   "exclude": ["node_modules"]
 }

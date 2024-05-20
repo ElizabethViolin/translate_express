@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeToggle } from "./components/themeToggle";
 import { ThemeProvider } from "./providers/themeProvider";
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({
           enableColorScheme={true}
         >
           {children}
-          <ThemeToggle />
         </ThemeProvider>
       </body>
     </html>
