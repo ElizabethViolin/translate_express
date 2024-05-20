@@ -8,9 +8,10 @@ import TranslationDisplay from './components/translationDisplay';
 import PlayPauseButton from './components/playPauseButton';
 import { Button } from './components/ui/button';
 import { ThemeToggle } from './components/themeToggle';
+import { User } from 'firebase/auth';
 
-export default function Home() {
-  const [user, setUser] = useState(null);
+const Home: React.FC = () => {
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -25,15 +26,18 @@ export default function Home() {
       await signOut();
       router.push('/login'); 
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        console.error('Unexpected error', error);
+      }
     }
   };
 
   return (
     <div className='flex'>
         <div className='flex-1'>
-        <Sidebar />
-
+            <Sidebar />
         </div>
         <div className='fixed top-0 right-0 p-5'>
             {user ? (
@@ -57,3 +61,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

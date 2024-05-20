@@ -6,28 +6,36 @@ import { signIn, signUp } from '../lib/auth';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await signIn(email, password);
       router.push('/');
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        console.error('Unexpected error', error);
+      }
     }
   };
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await signUp(email, password);
       router.push('/'); 
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        console.error('Unexpected error', error);
+      }
     }
   };
 
