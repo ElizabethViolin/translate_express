@@ -33,7 +33,7 @@ function TranslationDisplay() {
     }, [transcript, selectedLanguages]);
 
     return (
-        <div className='mt-20 mx-20 bg-messageGrey rounded-lg h-fit w-full p-8'>
+        <div className='mt-20 mx-20 bg-gray-300 dark:bg-messageGrey rounded-lg h-fit w-full p-8'>
             {transcript ? (
                 <>
                     <div>{detectedLanguage}:</div>
