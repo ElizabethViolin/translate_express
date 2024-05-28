@@ -3,7 +3,8 @@
 Translate Express is a high-powered translator app designed to enable continuous, real-time multilingual communication with seamless automatic language detection. This application aims to facilitate uninterrupted conversations and enhance global accessibility.
 
 ## Video Demo
-[https://drive.google.com/file/d/1Y-u_ui4cCJxhV-962qJpQ2s0wPGGvXId/view?usp=sharing](https://drive.google.com/file/d/1Y-u_ui4cCJxhV-962qJpQ2s0wPGGvXId/view?usp=sharing)
+[https://drive.google.com/file/d/1WVD3-ud-xmIEhaA_JDFjXZB7wr9NGKgN/view?usp=sharing
+](https://drive.google.com/file/d/1WVD3-ud-xmIEhaA_JDFjXZB7wr9NGKgN/view?usp=sharing)
 
 ## Features
 
