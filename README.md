@@ -44,7 +44,7 @@ Translate Express is a high-powered translator app designed to enable continuous
  ```
 2. Navigate to the project directory
 ```
-cd Interview-Sniper
+cd Translate-Express
 ```
 3. Use Docker to build and run the application
 ```
