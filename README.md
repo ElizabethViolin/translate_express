@@ -13,6 +13,7 @@ Translate Express is a high-powered translator app designed to enable continuous
 - **Google Cloud Translate Integration**: Utilize Google Cloud Translate API for precise and fast language translations.
 - **Azure Speech-to-Text Integration**: Leverage Azure Speech-to-Text API for enhanced voice transcription, converting spoken language into text in real-time.
 - **Mobile Accessibility with Flutter WebView**: Ensure seamless use of translation features across mobile devices by integrating a Flutter WebView.
+- **Containerized Application**: Utilize Docker for easy deployment, scaling, and management of the application environment.
 - **Firebase Authentication**: Implement secure authentication using Firebase, providing a scalable solution for sign-ups, sign-ins, and session management.
 - **Light and Dark Mode**: Incorporate light and dark mode with a responsive design to ensure usability across various devices and lighting conditions.
 
@@ -22,7 +23,7 @@ Translate Express is a high-powered translator app designed to enable continuous
 - **Backend**: Express.js (Node.js Framework)
 - **APIs**: Google Cloud Translate API, Azure Speech-to-Text API
 - **Mobile**: Flutter WebView for mobile accessibility
-- **Containerized Application**: Utilize Docker for easy deployment, scaling, and management of the application environment.
+- **Containerization**: Docker
 - **Authentication**: Firebase Authentication
 - **Deployment**: Vercel for hosting and continuous deployment
 
@@ -61,4 +62,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - Azure Speech-to-Text
 - Firebase
 - Vercel
+- Docker
 - Flutter
