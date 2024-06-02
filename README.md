@@ -35,44 +35,20 @@ Translate Express is a high-powered translator app designed to enable continuous
 
 ### Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/translate-express.git
-   cd translate-express
-   ```
-   
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-   
-3. Set up environment variables:
-Create a .env.local file in the root directory and add your API keys and Firebase configuration:
-   ```env
-   GOOGLE_CLOUD_TRANSLATE_API_KEY=your-google-cloud-translate-api-key
-   AZURE_SPEECH_TO_TEXT_API_KEY=your-azure-speech-to-text-api-key
-   FIREBASE_API_KEY=your-firebase-api-key
-   FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
-   FIREBASE_PROJECT_ID=your-firebase-project-id
-   FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
-   FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
-   FIREBASE_APP_ID=your-firebase-app-id
-   ```
+### Installation
 
-4. Run the development servers:
-  - Frontend (Next.js):
-    
-    ```bash
-    npm run dev
-    ```
-    Open http://localhost:3000 to view it in your browser.
-    
-  - Backend (Express.js):
-    
-    ```bash
-    npm run dev:server
-    ```
-    The server will run on http://localhost:3001.
+1. Clone the repo
+ ```
+ git clone https://yourrepository.com/Translate-Express.git
+ ```
+2. Navigate to the project directory
+```
+cd Interview-Sniper
+```
+3. Use Docker to build and run the application
+```
+docker-compose up --build
+```
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for details.
