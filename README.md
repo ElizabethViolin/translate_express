@@ -22,6 +22,7 @@ Translate Express is a high-powered translator app designed to enable continuous
 - **Backend**: Express.js (Node.js Framework)
 - **APIs**: Google Cloud Translate API, Azure Speech-to-Text API
 - **Mobile**: Flutter WebView for mobile accessibility
+- **Containerized Application**: Utilize Docker for easy deployment, scaling, and management of the application environment.
 - **Authentication**: Firebase Authentication
 - **Deployment**: Vercel for hosting and continuous deployment
 
